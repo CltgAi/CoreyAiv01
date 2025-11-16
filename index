@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pro Data Analysis Suite</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>Pro Data Analysis Suite</header>
+
+<div class="sidebar">
+  <a href="#">Dashboard</a>
+  <a href="#">Datasets</a>
+  <a href="#">Analysis Tools</a>
+  <a href="#">Visualizations</a>
+  <a href="#">Reports</a>
+  <a href="#">Settings</a>
+</div>
+
+<div class="content">
+  <h1>Welcome to Your Pro Data Analysis Suite</h1>
+  <p>This is the live version on GitHub Pages.</p>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
