@@ -57,3 +57,29 @@
   <script src="dashboard.js"></script>
 </body>
 </html>
+<section id="financeSection" class="dashboard-section">
+    <h2>📈 Live Finance Dashboard</h2>
+
+    <!-- Stock Price Card -->
+    <div class="finance-card">
+        <h3>Live Stock Price</h3>
+        <select id="stockSelector">
+            <option value="AAPL">Apple (AAPL)</option>
+            <option value="MSFT">Microsoft (MSFT)</option>
+            <option value="GOOGL">Google (GOOGL)</option>
+            <option value="TSLA">Tesla (TSLA)</option>
+            <option value="AMZN">Amazon (AMZN)</option>
+        </select>
+
+        <div class="price-box">
+            <span id="livePrice">$0.00</span>
+        </div>
+    </div>
+
+    <!-- Live Chart -->
+    <div class="finance-card">
+        <h3>📊 Live Stock Chart</h3>
+        <canvas id="stockChart" width="400" height="180"></canvas>
+    </div>
+</section>
+
