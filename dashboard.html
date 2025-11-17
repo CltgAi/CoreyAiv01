@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corey – Pro Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="sidebar">
+    <h2>COREY</h2>
+    <ul>
+      <li class="active">📊 Dashboard</li>
+      <li onclick="navigate('finance')">💹 Finance</li>
+      <li onclick="navigate('crypto')">🪙 Crypto</li>
+      <li onclick="navigate('hr')">👤 HR</li>
+      <li onclick="navigate('sales')">💼 Sales</li>
+      <li onclick="navigate('stocks')">📈 Markets</li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <h1>Dashboard Overview</h1>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>Total Revenue</h3>
+        <p id="revenue">Loading...</p>
+      </div>
+
+      <div class="card">
+        <h3>Active Users</h3>
+        <p id="users">Loading...</p>
+      </div>
+
+      <div class="card">
+        <h3>Crypto Value</h3>
+        <p id="crypto">Loading...</p>
+      </div>
+
+      <div class="card">
+        <h3>Portfolio Growth</h3>
+        <p id="growth">Loading...</p>
+      </div>
+
+    </div>
+
+    <div class="chart-container">
+      <canvas id="mainChart"></canvas>
+    </div>
+
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
