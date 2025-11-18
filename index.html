@@ -1,1 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corey Analytics Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>COREY AI</h2>
+
+        <a href="#" class="active" onclick="openSection('dashboard')">Dashboard</a>
+        <a href="#" onclick="openSection('finance')">Finance</a>
+        <a href="#" onclick="openSection('crypto')">Crypto</a>
+        <a href="#" onclick="openSection('ai-tools')">AI Tools</a>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+
+        <!-- HEADER -->
+        <div class="header">
+            <h1 id="pageTitle">Dashboard</h1>
+        </div>
+
+        <!-- DASHBOARD -->
+        <div id="dashboard" class="section">
+            <div class="card">
+                <h2>System Overview</h2>
+                <p>This dashboard shows financial markets, crypto tracking, AI tools, analytics and more.</p>
+            </div>
+
+            <div class="card">
+                <h2>Live Market Status</h2>
+                <div id="liveMarketBox">Loading...</div>
+            </div>
+        </div>
+
+        <!-- FINANCE SECTION -->
+        <div id="finance" class="section" style="display:none;">
+            <div class="card">
+                <h2>Live Stock Prices</h2>
+                <canvas id="stockChart"></canvas>
+            </div>
+        </div>
+
+        <!-- CRYPTO SECTION -->
+        <div id="crypto" class="section" style="display:none;">
+            <div class="card">
+                <h2>Live Crypto Prices</h2>
+                <canvas id="cryptoChart"></canvas>
+            </div>
+        </div>
+
+        <!-- AI TOOLS -->
+        <div id="ai-tools" class="section" style="display:none;">
+            <div class="card">
+                <h2>AI Tools</h2>
+                <p>More advanced AI integrations will appear here.</p>
+            </div>
+        </div>
+
+    </div>
+
+<script src="app.js"></script>
+</body>
+</html>
 
