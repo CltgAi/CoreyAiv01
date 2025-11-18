@@ -217,4 +217,121 @@ async function loadFinanceData() {
 loadFinanceData();
 setInterval(loadFinanceData, 30000);
 
+async function loadFinanceData() {
+
+    /* HELPER: Build rows */
+    function buildMarketHTML(dataObj) {
+        let html = "";
+        for (let key in dataObj) {
+            html += `
+                <div class="market-item">
+                    <div>${key}</div>
+                    <span>$${dataObj[key]}</span>
+                </div>
+            `;
+        }
+        return html;
+    }
+
+    /* -----------------------------------
+        1. STOCK MARKETS
+    -------------------------------------*/
+    try {
+        const stocksURL = "https://query1.finance.yahoo.com/v7/finance/quote?symbols=AAPL,MSFT,TSLA,AMZN,NVO.CO,MAERSK-B.CO,VWS.CO,BMW.DE,SAP.DE,SONY,INFY.NS";
+
+        let stockRes = await fetch(stocksURL, { headers: { "User-Agent": "Mozilla/5.0" } })
+            .then(r => r.json());
+
+        let stocks = {};
+        stockRes.quoteResponse.result.forEach(s => {
+            stocks[s.symbol] = s.regularMarketPrice ?? "N/A";
+        });
+
+        document.getElementById("market-stocks").innerHTML = buildMarketHTML(stocks);
+    } catch (e) {
+        document.getElementById("market-stocks").innerHTML = "Error loading stocks.";
+    }
+
+
+    /* -----------------------------------
+        2. INDEXES
+    -------------------------------------*/
+    try {
+        const indexURL = "https://query1.finance.yahoo.com/v7/finance/quote?symbols=^NDX,^GSPC,^GDAXI,^FTSE,^N225,^STOXX50E";
+
+        let indexRes = await fetch(indexURL, { headers: { "User-Agent": "Mozilla/5.0" } })
+            .then(r => r.json());
+
+        let indexes = {};
+        indexRes.quoteResponse.result.forEach(s => {
+            indexes[s.shortName] = s.regularMarketPrice ?? "N/A";
+        });
+
+        document.getElementById("market-index").innerHTML = buildMarketHTML(indexes);
+    } catch (e) {
+        document.getElementById("market-index").innerHTML = "Error loading indexes.";
+    }
+
+
+    /* -----------------------------------
+        3. FOREX PAIRS
+    -------------------------------------*/
+    try {
+        const forexURL = "https://query1.finance.yahoo.com/v7/finance/quote?symbols=EURUSD=X,USDJPY=X,GBPUSD=X";
+
+        let forexRes = await fetch(forexURL, { headers: { "User-Agent": "Mozilla/5.0" } })
+            .then(r => r.json());
+
+        let forex = {};
+        forexRes.quoteResponse.result.forEach(s => {
+            forex[s.symbol] = s.regularMarketPrice ?? "N/A";
+        });
+
+        document.getElementById("market-forex").innerHTML = buildMarketHTML(forex);
+    } catch (e) {
+        document.getElementById("market-forex").innerHTML = "Error loading forex.";
+    }
+
+
+    /* -----------------------------------
+        4. CRYPTO PRICES (CoinGecko)
+    -------------------------------------*/
+    try {
+        const cryptoURL = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,xrp&vs_currencies=usd";
+
+        let cryptoRes = await fetch(cryptoURL)
+            .then(r => r.json());
+
+        let crypto = {
+            BTC: cryptoRes.bitcoin.usd,
+            ETH: cryptoRes.ethereum.usd,
+            SOL: cryptoRes.solana.usd,
+            XRP: cryptoRes.xrp.usd
+        };
+
+        document.getElementById("market-crypto").innerHTML = buildMarketHTML(crypto);
+    } catch (e) {
+        document.getElementById("market-crypto").innerHTML = "Error loading crypto.";
+    }
+
+
+    /* -----------------------------------
+        5. COMMODITIES
+    -------------------------------------*/
+    let commodities = {
+        GOLD: 2030,
+        SILVER: 24.8,
+        OIL_WTI: 79.3,
+        OIL_BRENT: 83.2
+    };
+
+    document.getElementById("market-commodities").innerHTML = buildMarketHTML(commodities);
+
+}
+
+/* AUTO REFRESH */
+loadFinanceData();
+setInterval(loadFinanceData, 30000);
+
+
 
