@@ -79,6 +79,15 @@ body {
     margin-bottom: 20px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.4);
     transition: 0.2s;
+    #liveMarketBox {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+#liveMarketBox span {
+    font-weight: bold;
+}
+
 }
 
 .card:hover {
