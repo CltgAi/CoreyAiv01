@@ -127,3 +127,11 @@ canvas {
 }
 
 <link rel="stylesheet" href="style.css">
+:root {
+    --dark-bg: #0c111b;
+    --dark-blue: #0d1b2a;
+    --blue: #1b263b;
+    --accent: #00aaff;
+    --white: #ffffff;
+    --text-light: #e0e6ed;
+}
