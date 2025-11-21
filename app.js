@@ -363,5 +363,9 @@ async function loadLiveStocks() {
         stockContainer.innerHTML = `<p style="color:red;">Error loading live stocks</p>`;
     }
 }
+document.addEventListener("DOMContentLoaded", () => {
+    loadLiveStocks();
+    setInterval(loadLiveStocks, 60000); // update every 60 seconds
+});
 
 
