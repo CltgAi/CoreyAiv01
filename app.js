@@ -367,5 +367,32 @@ document.addEventListener("DOMContentLoaded", () => {
     loadLiveStocks();
     setInterval(loadLiveStocks, 60000); // update every 60 seconds
 });
+async function loadLiveBonds() {
+    const bonds = ["10UST.BOND", "30UST.BOND", "5UST.BOND"]; 
+
+    const bondContainer = document.getElementById("live-bond-feed");
+    bondContainer.innerHTML = `<p style="color:white;">Loading...</p>`;
+
+    try {
+        let html = "";
+        for (let b of bonds) {
+            const url = `https://stooq.com/q/l/?s=${b}&f=sd2t2ohlcv&h&e=json`;
+            const res = await fetch(url);
+            const data = await res.json();
+            const s = data[0];
+
+            html += `
+                <div class="bond-item">
+                    <h4>${s.symbol}</h4>
+                    <p>Yield: ${s.close}%</p>
+                </div>
+            `;
+        }
+        bondContainer.innerHTML = html;
+
+    } catch (err) {
+        bondContainer.innerHTML = `<p style="color:red;">Error loading live bonds</p>`;
+    }
+}
 
 
