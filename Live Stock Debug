@@ -1,0 +1,40 @@
+javascript:(async()=>{
+ console.clear();
+ console.log("%cLIVE STOCK DEBUGGER STARTED","color:cyan;font-size:20px;");
+ 
+ function log(title,data){console.log("%c"+title,"color:yellow;font-size:16px;",data);}
+
+ //=== Check if finance container exists ===
+ const el=document.querySelector("#live-stock-feed");
+ if(!el){
+   console.error("❌ ERROR: #live-stock-feed element missing on page!");
+ }else{
+   console.log("✅ Found #live-stock-feed");
+ }
+
+ //=== Test Stooq API ===
+ const stooqURL="https://stooq.com/q/l/?s=AAPL.US&f=sd2t2ohlcv&h&e=json";
+ log("Testing Stooq API:", stooqURL);
+ try{
+   const r=await fetch(stooqURL);
+   log("Stooq Response Status:", r.status);
+   const j=await r.json();
+   log("Stooq JSON Data:", j);
+ }catch(e){
+   console.error("❌ Stooq Fetch Error:", e);
+ }
+
+ //=== Test Yahoo Finance (unofficial) ===
+ const yahooURL="https://query1.finance.yahoo.com/v7/finance/quote?symbols=AAPL,MSFT";
+ log("Testing Yahoo Finance:", yahooURL);
+ try{
+   const r=await fetch(yahooURL);
+   log("Yahoo Response Status:", r.status);
+   const j=await r.json();
+   log("Yahoo JSON Data:", j);
+ }catch(e){
+   console.error("❌ Yahoo Fetch Error:", e);
+ }
+
+ console.log("%cDEBUG DONE","color:lime;font-size:18px;");
+})();
