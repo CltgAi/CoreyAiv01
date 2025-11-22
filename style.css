@@ -156,3 +156,15 @@ canvas {
 .stock-item h4 {
     margin: 0 0 5px 0;
 }
+/* Finance grid & item styles (add to your theme) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  gap: 18px;
+}
+
+.card h3 { color: var(--accent); margin-bottom: 8px; }
+.market-item { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.04); }
+.market-item .label { color: var(--white); }
+.market-item .value { color: var(--accent); font-weight:600; }
+.small { color: rgba(255,255,255,0.7); font-size:0.95rem; margin-bottom:8px; }
