@@ -47,3 +47,79 @@ nav ul li a {
     border-radius: 10px;
     border: 2px solid #0055aa;
 }
+/* GENERAL LAYOUT */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0a1626; /* dark blue */
+    color: #ffffff;
+}
+
+header {
+    background: #09203f; /* richer dark blue */
+    padding: 20px;
+    text-align: center;
+    color: white;
+    border-bottom: 3px solid #1e90ff;
+}
+
+/* NAVIGATION */
+nav {
+    background: #0b2345;
+    padding: 12px;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 6px;
+}
+
+nav a:hover {
+    background: #1e90ff; /* blue hover */
+}
+
+/* SECTIONS */
+section {
+    padding: 30px;
+}
+
+h2 {
+    color: #1e90ff;
+    margin-bottom: 20px;
+}
+
+/* CARDS */
+.card {
+    background: #112f57;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #1e90ff;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    gap: 20px;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+footer {
+    background: #09203f;
+    padding: 15px;
+    text-align: center;
+    color: #9bbfe6;
+    margin-top: 40px;
+}
