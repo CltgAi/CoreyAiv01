@@ -3,17 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Corey AI — Pro UI</title>
+  <title>Corey AI — Pro UI Adjusted</title>
 
-  <!-- Tailwind for rapid prototyping (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Optional: Chart.js for charts placeholders -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
   <link rel="stylesheet" href="style.css">
+
   <style>
-    /* Pro UI add-ons (glass, transitions). Keep minimal — primary styles live in style.css */
     .glass {
       background: rgba(255,255,255,0.06);
       backdrop-filter: blur(8px) saturate(120%);
@@ -42,43 +38,22 @@
         <a class="block px-3 py-2 rounded-lg hover:bg-white/5" href="#upload">Upload</a>
         <a class="block px-3 py-2 rounded-lg hover:bg-white/5" href="#settings">Settings</a>
       </nav>
-
-      <div class="mt-8 text-sm text-slate-400">
-        <p class="mb-2">Account</p>
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500"></div>
-          <div>
-            <div class="font-medium">Corey Admin</div>
-            <div class="text-xs text-slate-400">Pro • Member</div>
-          </div>
-        </div>
-      </div>
     </aside>
 
     <!-- MAIN CONTENT -->
-    <main class="flex-1 p-6">
+    <main class="flex-1 p-6 max-w-7xl mx-auto">
 
       <!-- TOPBAR -->
-      <header class="flex items-center justify-between gap-4 mb-6">
+      <header class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div>
           <h2 class="text-2xl font-bold">Live Market Suite</h2>
           <p class="text-sm text-gray-500 dark:text-gray-400">Overview · Real-time insights · Upload & analyze</p>
         </div>
-
-        <div class="flex items-center gap-3">
-          <div class="hidden sm:flex items-center gap-3 bg-white/60 dark:bg-white/5 rounded-full p-1 shadow-sm">
-            <button id="darkToggle" class="px-3 py-1 rounded-full text-sm">Dark Mode</button>
-            <button id="refreshAll" class="px-3 py-1 rounded-full text-sm">Refresh</button>
-          </div>
-
-          <div class="flex items-center gap-3">
-            <button class="p-2 rounded-lg glass" title="Notifications">
-              🔔
-            </button>
-            <button class="p-2 rounded-lg glass" title="Profile">
-              👤
-            </button>
-          </div>
+        <div class="flex flex-wrap gap-3 items-center">
+          <button id="financeBtn" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg">Finance</button>
+          <button id="cryptoBtn" class="bg-purple-600 hover:bg-purple-500 text-white px-4 py-2 rounded-lg">Crypto</button>
+          <button id="darkToggle" class="px-3 py-1 rounded-full text-sm bg-white/60 dark:bg-white/5">Dark Mode</button>
+          <button id="refreshAll" class="px-3 py-1 rounded-full text-sm bg-white/60 dark:bg-white/5">Refresh</button>
         </div>
       </header>
 
@@ -115,25 +90,24 @@
         </div>
       </section>
 
-      <!-- GRID: Charts & Lists -->
-      <section class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+      <!-- MAIN GRID -->
+      <section class="grid grid-cols-1 xl:grid-cols-2 gap-6">
 
-        <!-- Left: Large Market Chart -->
-        <div class="xl:col-span-2 p-6 rounded-3xl glass">
+        <!-- Market Chart (fitted width) -->
+        <div class="p-6 rounded-3xl glass max-w-full">
           <div class="flex items-center justify-between mb-4">
             <h3 class="text-lg font-semibold">Market Overview (24h)</h3>
             <div class="text-sm text-gray-400">USD · Live</div>
           </div>
-          <canvas id="marketChart" height="160"></canvas>
+          <canvas id="marketChart" height="240"></canvas>
         </div>
 
-        <!-- Right: Cards list -->
+        <!-- Right Column: Module Cards -->
         <div class="space-y-4">
           <div class="p-4 rounded-2xl glass">
             <h4 class="font-semibold mb-3">Top Cryptos</h4>
             <div id="crypto-list" class="space-y-2 text-sm text-gray-200">Loading…</div>
           </div>
-
           <div class="p-4 rounded-2xl glass">
             <h4 class="font-semibold mb-3">Live US Stocks</h4>
             <div id="stocks-list" class="space-y-2 text-sm text-gray-200">Loading…</div>
@@ -147,7 +121,6 @@
           <h3 class="font-semibold mb-4">Top 50 Live Prices</h3>
           <div id="top50-scroll" style="max-height:380px; overflow:auto">Loading…</div>
         </div>
-
         <div class="p-6 rounded-3xl glass">
           <h3 class="font-semibold mb-3">Upload CSV</h3>
           <input id="csvUpload" type="file" accept=".csv" class="w-full p-3 rounded-lg bg-white/5" />
@@ -160,9 +133,7 @@
   </div>
 
   <script src="main.js" defer></script>
-
   <script>
-    // Lightweight chart placeholder using Chart.js
     document.addEventListener('DOMContentLoaded', () => {
       const ctx = document.getElementById('marketChart');
       if (ctx) {
@@ -180,10 +151,6 @@
           options: { responsive:true, maintainAspectRatio:false }
         });
       }
-
-      // Quick hook to wire refresh button (main.js also provides refresh)
-      const refresh = document.getElementById('refreshAll');
-      if (refresh) refresh.addEventListener('click', ()=>{ window.refreshAll && window.refreshAll(); });
     });
   </script>
 </body>
