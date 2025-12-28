@@ -1,71 +1,215 @@
-/* ---------- Base Layout ---------- */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f6f8;
-  color: #222;
+/* ================================
+   COREY NEW AI – PRO UI THEME
+   Colors: Black / Dark Blue / Blue / White
+   Works on GitHub Pages
+================================ */
+
+/* ---------- CSS RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* ---------- Header ---------- */
+/* ---------- ROOT THEME ---------- */
+:root {
+    --bg-main: #050b1a;
+    --bg-dark: #07122a;
+    --bg-card: #0d1b3d;
+
+    --blue-main: #1f4fd8;
+    --blue-light: #4ea1ff;
+
+    --white: #ffffff;
+    --text-muted: #b8c2e0;
+
+    --border-soft: rgba(255, 255, 255, 0.12);
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- BODY ---------- */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(180deg, var(--bg-main), var(--bg-dark));
+    color: var(--white);
+    min-height: 100vh;
+}
+
+/* ---------- HEADER ---------- */
 header {
-  background: #0d1117;
-  color: #fff;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    background: linear-gradient(90deg, #07122a, #0d1b4c);
+    padding: 22px;
+    border-bottom: 3px solid var(--blue-main);
+    box-shadow: var(--shadow-soft);
+}
+
+header h1 {
+    font-size: 26px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* ---------- NAVIGATION ---------- */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 14px;
 }
 
 nav a {
-  color: #fff;
-  margin-left: 1.5rem;
-  text-decoration: none;
-  font-weight: bold;
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 16px;
+    border-radius: 8px;
+    transition: all 0.25s ease;
 }
 
-#darkToggle {
-  background: #222;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+nav a:hover,
+nav a.active {
+    background: var(--blue-main);
+    color: #ffffff;
 }
 
-/* ---------- Main Container ---------- */
-.container {
-  padding: 2rem;
-  max-width: 1400px;
-  margin: auto;
+/* ---------- MAIN CONTENT ---------- */
+main {
+    padding: 32px;
 }
 
-/* ---------- Grid System ---------- */
+/* ---------- SECTIONS ---------- */
+.section {
+    display: none;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.section.active {
+    display: block;
+}
+
+/* ---------- GRID LAYOUT ---------- */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
 }
 
-/* ---------- Cards ---------- */
+/* ---------- CARDS ---------- */
 .card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(180deg, var(--bg-card), #0a1633);
+    border-radius: 14px;
+    padding: 22px;
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-soft);
 }
 
-.card h2 {
-  margin-top: 0;
+.card h3 {
+    margin-bottom: 12px;
+    color: var(--blue-light);
 }
 
-/* ---------- Dark Mode Styles ---------- */
-body.dark {
-  background: #0d1117;
-  color: #e6edf3;
+.card p {
+    color: var(--text-muted);
+    font-size: 14px;
 }
 
-body.dark .card {
-  background: #161b22;
-  color: #e6edf3;
-  box-shadow: 0 2px 6px rgba(255, 25
+/* ---------- DASHBOARD METRICS ---------- */
+.metric {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 8px;
+    color: var(--white);
+}
+
+/* ---------- FINANCE TABS ---------- */
+.tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    background: transparent;
+    border: 1px solid var(--border-soft);
+    color: var(--white);
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+.tab-button:hover {
+    background: var(--blue-light);
+    color: #07122a;
+}
+
+.tab-button.active {
+    background: var(--blue-main);
+    border-color: var(--blue-main);
+}
+
+/* ---------- TABLE ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+th {
+    color: var(--blue-light);
+    font-size: 13px;
+}
+
+td {
+    font-size: 14px;
+}
+
+/* ---------- LIVE STATUS ---------- */
+.status-up {
+    color: #3cff8f;
+    font-weight: bold;
+}
+
+.status-down {
+    color: #ff4e4e;
+    font-weight: bold;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-soft);
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap;
+    }
+}
+
 
