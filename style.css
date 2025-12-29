@@ -211,5 +211,18 @@ footer {
         flex-wrap: wrap;
     }
 }
+.finance-tab {
+    display: none;
+}
+
+.finance-tab.active {
+    display: block;
+}
+
+iframe {
+    width: 100%;
+    height: 500px;
+    border-radius: 10px;
+}
 
 
