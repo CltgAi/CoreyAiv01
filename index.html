@@ -187,3 +187,37 @@ document.addEventListener('DOMContentLoaded', () => {
 </body>
 </html> <link rel="stylesheet" href="style.css">
 
+<div class="tabs">
+  <button class="tab-button active" onclick="showFinanceTab('crypto')">Crypto</button>
+  <button class="tab-button" onclick="showFinanceTab('stocks')">Stocks</button>
+  <button class="tab-button" onclick="showFinanceTab('bonds')">Bonds</button>
+  <button class="tab-button" onclick="showFinanceTab('news')">News</button>
+</div>
+
+<div id="crypto" class="finance-tab active">
+  <div class="card">
+    <h3>Top Cryptocurrencies</h3>
+    <div id="crypto-widget"></div>
+  </div>
+</div>
+
+<div id="stocks" class="finance-tab">
+  <div class="card">
+    <h3>Top Stocks</h3>
+    <div id="stocks-widget"></div>
+  </div>
+</div>
+
+<div id="bonds" class="finance-tab">
+  <div class="card">
+    <h3>Government & Corporate Bonds</h3>
+    <div id="bonds-widget"></div>
+  </div>
+</div>
+
+<div id="news" class="finance-tab">
+  <div class="card">
+    <h3>Live Market News</h3>
+    <div id="news-widget"></div>
+  </div>
+</div>
