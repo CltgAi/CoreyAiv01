@@ -27,44 +27,49 @@
 
 <main>
 
-<!-- ================= DASHBOARD (OLD STYLE) ================= -->
+<!-- ================= DASHBOARD (OLD FAVORITE VERSION) ================= -->
 <section id="dashboard" class="section active">
 
   <h1>Dashboard</h1>
-  <p class="subtitle">Live global market status</p>
+  <p class="subtitle">Executive market overview</p>
 
-  <div class="segment-layout">
+  <div class="dashboard-layout">
 
-    <!-- MAIN -->
-    <div class="segment-main">
+    <!-- MAIN COLUMN -->
+    <div class="dashboard-main">
 
+      <!-- AI SUMMARY -->
       <div id="dashboard-summary" class="ai-summary"></div>
 
+      <!-- INDICES -->
       <div class="card">
-        <h3>Global Indices</h3>
+        <h3>Global Markets</h3>
         <div id="tv-indices"></div>
       </div>
 
+      <!-- STOCKS + CRYPTO -->
       <div class="card">
-        <h3>Stocks & Crypto Overview</h3>
+        <h3>Risk Assets</h3>
         <div id="tv-stocks"></div>
       </div>
 
+      <!-- BONDS -->
       <div class="card">
-        <h3>Bonds & Rates</h3>
+        <h3>Rates & Bonds</h3>
         <div id="tv-bonds"></div>
       </div>
 
+      <!-- ALERTS -->
       <div class="card">
-        <h3>AI Market Alerts</h3>
+        <h3>AI Market Signals</h3>
         <ul id="ai-alert-list"></ul>
       </div>
 
     </div>
 
-    <!-- SIDE -->
-    <aside class="segment-side">
-      <h3>Market News</h3>
+    <!-- SIDE COLUMN -->
+    <aside class="dashboard-side">
+      <h3>Top Market News</h3>
       <div id="tv-news"></div>
     </aside>
 
@@ -76,7 +81,7 @@
 <section id="finance" class="section">
 
   <h1>Finance</h1>
-  <p class="subtitle">Focused financial analysis</p>
+  <p class="subtitle">Detailed financial analysis</p>
 
   <div class="tabs">
     <button class="tab active" onclick="openFinanceTab('stocksTab')">Stocks</button>
@@ -85,16 +90,16 @@
     <button class="tab" onclick="openFinanceTab('newsTab')">News</button>
   </div>
 
-  <div class="tab-panel active" id="stocksTab"><div id="finance-stocks"></div></div>
-  <div class="tab-panel" id="bondsTab"><div id="finance-bonds"></div></div>
-  <div class="tab-panel" id="cryptoTab"><div id="finance-crypto"></div></div>
-  <div class="tab-panel" id="newsTab"><div id="finance-news"></div></div>
+  <div id="stocksTab" class="tab-panel active"><div id="finance-stocks"></div></div>
+  <div id="bondsTab" class="tab-panel"><div id="finance-bonds"></div></div>
+  <div id="cryptoTab" class="tab-panel"><div id="finance-crypto"></div></div>
+  <div id="newsTab" class="tab-panel"><div id="finance-news"></div></div>
 
 </section>
 
 </main>
 
-<!-- ================= WIDGETS ================= -->
+<!-- ================= LIVE WIDGETS ================= -->
 
 <script src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js">
 {
