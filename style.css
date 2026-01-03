@@ -38,37 +38,40 @@ nav a.active {
   margin-bottom: 20px;
 }
 
-.segment-layout {
+/* DASHBOARD */
+.dashboard-layout {
   display: grid;
-  grid-template-columns: 3fr 1.2fr;
-  gap: 20px;
+  grid-template-columns: 3fr 1.3fr;
+  gap: 24px;
 }
 
-.segment-main {
+.dashboard-main {
   display: grid;
-  gap: 20px;
+  gap: 22px;
 }
 
-.segment-side {
+.dashboard-side {
   background: #0b1220;
-  padding: 15px;
-  border-radius: 12px;
+  padding: 16px;
+  border-radius: 14px;
 }
 
+/* CARDS */
 .card {
   background: linear-gradient(180deg, #0f1a2e, #0b1220);
-  padding: 15px;
+  padding: 16px;
   border-radius: 14px;
   border: 1px solid #1f3b66;
 }
 
 .ai-summary {
   background: linear-gradient(135deg, #0a1e3f, #102b55);
-  padding: 16px;
+  padding: 18px;
   border-radius: 14px;
   border: 1px solid #2a5da8;
 }
 
+/* TABS */
 .tabs {
   display: flex;
   gap: 10px;
@@ -105,3 +108,4 @@ body.pro .card {
   border-color: #3b82f6;
   box-shadow: 0 0 18px rgba(59,130,246,0.3);
 }
+
